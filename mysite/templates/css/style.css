@@ -1,0 +1,53 @@
+body{
+    font-family: "Lato";
+    background: url(../img/fond-flower.jpg) no-repeat 50% 50%;
+}
+h1{
+    color: #B50C95;
+    font-family: "Montserrat", "Lato";
+    margin-bottom: 40px;
+}
+nav{
+    background-color: rgba(37, 160, 50, .8);
+    padding: 10px 0!important;
+}
+.nav{
+    margin: 0 auto;
+}
+.nav li{
+    padding: 0 20px;
+}
+.navbar-brand {
+    color: #ffffff!important;
+}
+.navbar-brand:hover {
+    color: rgba(255, 255, 255, .7)!important;
+}
+
+.form-group label, .form-group input{
+    display: inline-block;
+    vertical-align: top;
+}
+.form-group label{
+    width: 250px;
+}
+.box{
+    width: 75%;
+    margin: 65px auto 0 auto;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    box-shadow: 0px 2px 9px #ccc;
+    padding: 75px 40px;
+    background: rgba(255, 255, 255, 0.4);
+}
+.btn{
+    width: 200px;
+    font-size: 17px;
+}
+input, .btn{
+    border-radius: 50px!important;
+}
+.jumbotron{
+    margin-bottom: 0!important;
+    background: transparent;
+}
