@@ -20,10 +20,10 @@ from __future__ import print_function
 import argparse
 import sys
 import time
+import urllib.request
 
 import numpy as np
 import tensorflow as tf
-import urllib.request
 
 
 def load_graph(model_file):
@@ -44,7 +44,7 @@ def telechargmentImage(imagePath, fileName):
     return fileName
 
 
-def read_tensor_from_image_file(file_name, input_height=299, input_width=299,
+def read_tensor_from_image_file(fileName, input_height=299, input_width=299,
                                 input_mean=0, input_std=255):
     input_name = "file_reader"
     output_name = "normalized"
@@ -89,6 +89,7 @@ if __name__ == "__main__":
     input_std = 128
     input_layer = "input"
     output_layer = "final_result"
+    link_name = "https://previews.123rf.com/images/irinacapel/irinacapel1804/irinacapel180400103/100464534-pattern-of-lys-flowers-on-a-white-background-top-view-.jpg"
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--image", help="image to be processed")
@@ -100,10 +101,15 @@ if __name__ == "__main__":
     parser.add_argument("--input_std", type=int, help="input std")
     parser.add_argument("--input_layer", help="name of input layer")
     parser.add_argument("--output_layer", help="name of output layer")
+    parser.add_argument("--link", help="lien d'image")
     args = parser.parse_args()
+
+    print(args)
 
     if args.graph:
         model_file = args.graph
+    if args.link:
+        link_name = args.link
     if args.image:
         file_name = args.image
     if args.labels:
@@ -120,6 +126,8 @@ if __name__ == "__main__":
         input_layer = args.input_layer
     if args.output_layer:
         output_layer = args.output_layer
+
+    fileName = telechargmentImage(args.link, file_name)
 
     graph = load_graph(model_file)
     t = read_tensor_from_image_file(file_name,
