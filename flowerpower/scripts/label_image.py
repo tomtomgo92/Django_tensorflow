@@ -23,6 +23,7 @@ import time
 
 import numpy as np
 import tensorflow as tf
+import urllib.request
 
 
 def load_graph(model_file):
